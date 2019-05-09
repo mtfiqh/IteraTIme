@@ -20,6 +20,7 @@ class JadwalActivity : AppCompatActivity() {
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
+        tabs.tabMode = TabLayout.MODE_SCROLLABLE
         val fab: FloatingActionButton = findViewById(R.id.fab)
 
         fab.setOnClickListener { view ->
