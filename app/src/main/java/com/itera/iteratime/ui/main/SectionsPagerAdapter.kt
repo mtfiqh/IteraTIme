@@ -27,11 +27,21 @@ private val TAB_TITLES = arrayOf(
  */
 class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
-    override fun getItem(position: Int): Fragment {
+    override fun getItem(position: Int): Fragment? {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1)
+        when(position){
+            0 -> return SeninFragment()
+            1 -> return SelasaFragment()
+            2 -> return RabuFragment()
+            3 -> return KamisFragment()
+            4 -> return JumatFragment()
+            5 -> return SabtuFragment()
+            else -> return MingguFragment()
+        }
+
     }
+
 
     override fun getPageTitle(position: Int): CharSequence? {
         return context.resources.getString(TAB_TITLES[position])
