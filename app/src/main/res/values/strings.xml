@@ -18,4 +18,7 @@
     <string name="tab_text_5">Jumat</string>
     <string name="tab_text_6">Sabtu</string>
     <string name="tab_text_7">Minggu</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hari Senin</string>
 </resources>
