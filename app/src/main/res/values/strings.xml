@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">IteraTime</string>
     <string name="title_activity_jadwal">JadwalActivity</string>
+<<<<<<< HEAD
     <!--<string-array name="tab_text">-->
     <!--<item>Senin</item>-->
     <!--<item>Selasa</item>-->
@@ -21,4 +22,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hari Senin</string>
+=======
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+>>>>>>> parent of b1845cd... Merge branch 'master' of https://github.com/taufiq2810/IteraTIme
 </resources>

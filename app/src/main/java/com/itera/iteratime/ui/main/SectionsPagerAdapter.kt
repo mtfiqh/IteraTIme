@@ -8,18 +8,8 @@ import com.itera.iteratime.R
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_1,
-    R.string.tab_text_2,
-    R.string.tab_text_3,
-    R.string.tab_text_4,
-    R.string.tab_text_5,
-    R.string.tab_text_6,
-    R.string.tab_text_7
+    R.string.tab_text_2
 )
-
-//private val TAB_TITLES : Int = R.array.tab_text
-
-//val array: Array = resources.getStringArray(R.array.planets_array)
-
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -49,6 +39,6 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) : 
 
     override fun getCount(): Int {
         // Show 2 total pages.
-        return TAB_TITLES.size
+        return 2
     }
 }

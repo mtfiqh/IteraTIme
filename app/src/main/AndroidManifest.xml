@@ -10,10 +10,14 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of b1845cd... Merge branch 'master' of https://github.com/taufiq2810/IteraTIme
 
 
         <activity android:name=".Splashscreen"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+<<<<<<< HEAD
 =======
         <activity android:name=".AddJadwalActivity">
         </activity>
@@ -26,6 +30,8 @@
                 android:name=".Splashscreen"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 >>>>>>> 74afc7758a762159dd4b73d9c577ace6e3de3892
+=======
+>>>>>>> parent of b1845cd... Merge branch 'master' of https://github.com/taufiq2810/IteraTIme
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -33,6 +39,9 @@
             </intent-filter>
         </activity>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of b1845cd... Merge branch 'master' of https://github.com/taufiq2810/IteraTIme
 
         <activity
                 android:name=".JadwalActivity"
@@ -40,6 +49,7 @@
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+<<<<<<< HEAD
 =======
 >>>>>>> 74afc7758a762159dd4b73d9c577ace6e3de3892
         <activity android:name=".MainActivity">
@@ -47,3 +57,11 @@
     </application>
 
 </manifest>
+=======
+        <activity android:name=".MainActivity">
+        </activity>
+
+    </application>
+
+</manifest>
+>>>>>>> parent of b1845cd... Merge branch 'master' of https://github.com/taufiq2810/IteraTIme
