@@ -16,6 +16,11 @@ private val TAB_TITLES = arrayOf(
     R.string.tab_text_7
 )
 
+//private val TAB_TITLES : Int = R.array.tab_text
+
+//val array: Array = resources.getStringArray(R.array.planets_array)
+
+
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
@@ -34,6 +39,6 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) : 
 
     override fun getCount(): Int {
         // Show 2 total pages.
-        return 7
+        return TAB_TITLES.size
     }
 }

@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">IteraTime</string>
     <string name="title_activity_jadwal">JadwalActivity</string>
-    <string name="tab_text_1">Senin1</string>
+    <!--<string-array name="tab_text">-->
+    <!--<item>Senin</item>-->
+    <!--<item>Selasa</item>-->
+    <!--<item>Rabu</item>-->
+    <!--<item>Kamis</item>-->
+    <!--<item>JUmat</item>-->
+    <!--<item>Sabtu</item>-->
+    <!--<item>Minggu</item>-->
+
+    <!--</string-array>-->
+    <string name="tab_text_1">Senin</string>
     <string name="tab_text_2">Selasa</string>
     <string name="tab_text_3">Rabu</string>
     <string name="tab_text_4">Kamis</string>

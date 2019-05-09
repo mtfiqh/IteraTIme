@@ -1,5 +1,7 @@
 package com.itera.iteratime
 
+import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
@@ -23,9 +25,11 @@ class JadwalActivity : AppCompatActivity() {
         tabs.tabMode = TabLayout.MODE_SCROLLABLE
         val fab: FloatingActionButton = findViewById(R.id.fab)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        fab.setOnClickListener {
+            //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
+            val addActivity = Intent(this,AddJadwalActivity::class.java)
+            startActivity(addActivity)
         }
     }
 }
