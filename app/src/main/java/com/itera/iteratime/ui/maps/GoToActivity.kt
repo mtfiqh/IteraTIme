@@ -16,6 +16,7 @@ import com.google.android.gms.common.GooglePlayServicesRepairableException
 import com.google.android.gms.location.places.AutocompleteFilter
 import com.google.android.gms.location.places.ui.PlaceAutocomplete
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
@@ -24,17 +25,14 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.maps.android.PolyUtil
 import com.itera.iteratime.R
-import com.itera.iteratime.ui.maps.MhsActiwvity.Companion.REQUEST_CODE
 import com.itera.iteratime.ui.maps.network.InitLibrary
 import com.itera.iteratime.ui.maps.respone.ResponseRoute
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import com.google.android.gms.maps.GoogleMap as GoogleMap1
 
-class MhsActivity : AppCompatActivity(), OnMapReadyCallback {
-
-    private var mMap: GoogleMap1? = null
+class GoToActivity : AppCompatActivity(), OnMapReadyCallback {
+    private var mMap: GoogleMap? = null
 
     private val API_KEY = "AIzaSyC7xn-9evBs2spLhfzjRMdjLZ4N_GHU5m0"
 
@@ -52,9 +50,22 @@ class MhsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var tvPickUpFrom: TextView? = null
     private var tvDestLocation: TextView? = null
 
+    @SuppressLint("MissingPermission")
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        mMap!!.setPadding(10, 180, 10, 10)
+        mMap!!.mapType = com.google.android.gms.maps.GoogleMap.MAP_TYPE_NORMAL
+
+        mMap!!.isMyLocationEnabled = true
+        mMap!!.uiSettings.isCompassEnabled = true
+        mMap!!.uiSettings.isZoomGesturesEnabled = true
+        mMap!!.uiSettings.isRotateGesturesEnabled = false
+        mMap!!.uiSettings.isZoomControlsEnabled = true
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mhs)
+        setContentView(R.layout.activity_go_to)
 
         getSupportActionBar()?.setTitle("Route")
 
@@ -65,28 +76,14 @@ class MhsActivity : AppCompatActivity(), OnMapReadyCallback {
         tvPickUpFrom!!.setOnClickListener(View.OnClickListener {
             // Jalankan Method untuk menampilkan Place Auto Complete
             // Bawa constant PICK_UP
-            showPlaceAutoComplete(MhsActivity.PICK_UP)
+            showPlaceAutoComplete(GoToActivity.PICK_UP)
         })
         // Event OnClick
         tvDestLocation!!.setOnClickListener(View.OnClickListener {
             // Jalankan Method untuk menampilkan Place Auto Complete
             // Bawa constant DEST_LOC
-            showPlaceAutoComplete(MhsActivity.DEST_LOC)
+            showPlaceAutoComplete(GoToActivity.DEST_LOC)
         })
-
-    }
-
-    @SuppressLint("MissingPermission")
-    override fun onMapReady(googleMap: com.google.android.gms.maps.GoogleMap) {
-        mMap = googleMap
-        mMap!!.setPadding(10, 180, 10, 10)
-        mMap!!.mapType = com.google.android.gms.maps.GoogleMap.MAP_TYPE_NORMAL
-
-        mMap!!.isMyLocationEnabled = true
-        mMap!!.uiSettings.isCompassEnabled = true
-        mMap!!.uiSettings.isZoomGesturesEnabled = true
-        mMap!!.uiSettings.isRotateGesturesEnabled = false
-        mMap!!.uiSettings.isZoomControlsEnabled = true
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -109,13 +106,13 @@ class MhsActivity : AppCompatActivity(), OnMapReadyCallback {
                 val placeName = placeData.name.toString()
 
                 // Cek user milih titik jemput atau titik tujuan
-                when (REQUEST_CODE) {
-                    MhsActivity.PICK_UP -> {
+                when (GoToActivity.REQUEST_CODE) {
+                    GoToActivity.PICK_UP -> {
                         // Set ke widget lokasi asal
                         tvPickUpFrom!!.setText(placeAddress)
                         pickUpLatLng = placeData.latLng
                     }
-                    MhsActivity.DEST_LOC -> {
+                    GoToActivity.DEST_LOC -> {
                         // Set ke widget lokasi tujuan
                         tvDestLocation!!.setText(placeAddress)
                         locationLatLng = placeData.latLng
@@ -123,7 +120,7 @@ class MhsActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
                 // Jalankan Action Route
                 if (pickUpLatLng != null && locationLatLng != null) {
-                    actionRoute(placeLatLng, REQUEST_CODE)
+                    actionRoute(placeLatLng, GoToActivity.REQUEST_CODE)
                 }
 
             } else {
@@ -131,6 +128,7 @@ class MhsActivity : AppCompatActivity(), OnMapReadyCallback {
                 Toast.makeText(this, "Invalid Place !", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 
     //Fungsi
@@ -237,7 +235,7 @@ class MhsActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun showPlaceAutoComplete(typeLocation: Int) {
         // isi RESUT_CODE tergantung tipe lokasi yg dipilih.
         // titik jmput atau tujuan
-        REQUEST_CODE = typeLocation
+        GoToActivity.REQUEST_CODE = typeLocation
 
         // Filter hanya tmpat yg ada di Indonesia
         val typeFilter = AutocompleteFilter.Builder().setCountry("ID").build()
@@ -247,7 +245,7 @@ class MhsActivity : AppCompatActivity(), OnMapReadyCallback {
                 .setFilter(typeFilter)
                 .build(this)
             // jalankan intent impilist
-            startActivityForResult(mIntent, REQUEST_CODE)
+            startActivityForResult(mIntent, GoToActivity.REQUEST_CODE)
         } catch (e: GooglePlayServicesRepairableException) {
             e.printStackTrace() // cetak error
         } catch (e: GooglePlayServicesNotAvailableException) {
@@ -257,8 +255,4 @@ class MhsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
     }
-}
-
-private fun TextView?.setText(text: Any?) {
-
 }
