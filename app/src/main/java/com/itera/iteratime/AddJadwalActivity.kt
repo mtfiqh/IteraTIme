@@ -99,7 +99,7 @@ class AddJadwalActivity : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference("Jadwal")
 
-        myRef.child(jadwal.hari).push().setValue(jadwal).addOnCompleteListener {
+        myRef.child(jadwal.hari.toString()).push().setValue(jadwal).addOnCompleteListener {
             loading.hide()
         }
         val intent = Intent(this, JadwalActivity::class.java).apply {
