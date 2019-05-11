@@ -1,12 +1,21 @@
 package com.itera.iteratime
 
+import android.app.ProgressDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
+import android.provider.AlarmClock.EXTRA_MESSAGE
+import android.text.TextUtils
+import android.widget.*
 import kotlinx.android.synthetic.main.activity_add_jadwal.*
+import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+
+
 
 class AddJadwalActivity : AppCompatActivity() {
 
@@ -25,7 +34,11 @@ class AddJadwalActivity : AppCompatActivity() {
         gedung_spinner.adapter=adapter2
 
         time_Text.setOnClickListener(){
-            getTime()
+            getTime(time_Text)
+        }
+
+        time2_Text.setOnClickListener{
+            getTime(time2_Text)
         }
 
         save_button.setOnClickListener{
@@ -34,32 +47,71 @@ class AddJadwalActivity : AppCompatActivity() {
 
     }
 
-    fun getTime(){
+    fun getTime(Text : TextView){
         val c = Calendar.getInstance()
         val hour = c.get(Calendar.HOUR)
         val minute = c.get(Calendar.MINUTE)
 
-        val tpd = TimePickerDialog(this,TimePickerDialog.OnTimeSetListener(function = { v, h, m ->
+        val tpd = TimePickerDialog(this,TimePickerDialog.OnTimeSetListener(function = { _, h, m ->
             c.set(Calendar.HOUR_OF_DAY, h)
             c.set(Calendar.MINUTE, m)
 
-            time_Text.text = SimpleDateFormat("HH:mm").format(c.time)
+            Text.text = SimpleDateFormat("HH:mm").format(c.time)
         }),hour,minute,false)
         tpd.show()
 
     }
 
     fun save (){
+        if(TextUtils.isEmpty(mataKuliah_Text.text)) {
+            createToast("Isi Mata Kuliah nya ya")
+            mataKuliah_Text.error = "Tidak Bisa Kosong"
+            return
+        }
+        if(TextUtils.isEmpty(sks_Text.text)){
+            createToast("Isi SKS nya ya")
+            sks_Text.error = "Tidak Bisa Kosong"
+            return
+        }
+        if(TextUtils.isEmpty(room_Text.text)){
+            createToast("Isi ruangan nya ya")
+            room_Text.error = "Tidak Bisa Kosong"
+            return
+        }
         var matakuliah = mataKuliah_Text.text
         var sks = sks_Text.text.toString().toInt()
         var hari = day_Spinner.selectedItem.toString()
-        var pukul = time_Text.text
+        var dari = time_Text.text
+        var sampai = time2_Text.text
         var gedung = gedung_spinner.selectedItem.toString()
         var ruangan = room_Text.text
         var dosen = dosen_Text.text
 
-        var jadwal = Jadwal(matakuliah.toString(), sks, hari, pukul.toString(), gedung, ruangan.toString(), dosen.toString())
 
+
+        val jadwal = Jadwal(matakuliah.toString(), sks, hari, dari.toString(), sampai.toString(), gedung, ruangan.toString(), dosen.toString())
+        toDatabase(jadwal)
+    }
+
+    fun toDatabase(jadwal: Jadwal){
+        // Write a message to the database
+        var loading = ProgressDialog.show(this, null, "please wait...", true, false)
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("Jadwal")
+
+        myRef.child(jadwal.hari).push().setValue(jadwal).addOnCompleteListener {
+            loading.hide()
+        }
+        val intent = Intent(this, JadwalActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE, "Data Berhasil ditambah")
+        }
+        createToast("Data berhasil ditambah")
+        startActivity(intent)
+        finish()
+    }
+
+    fun createToast(msg:String){
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
     }
 
 
