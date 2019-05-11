@@ -194,7 +194,7 @@ class GoToActivity : AppCompatActivity(), OnMapReadyCallback {
 
                     // Set Nilai Ke Widget
                     val price_per_meter = 250.0
-                    val priceTotal = price_per_meter * dataDistance!!.getValue() // Jarak * harga permeter
+                    val priceTotal = price_per_meter*dataDistance!!.getValue() // Jarak * harga permeter
 
                     tvDistance.setText(dataDistance?.getText())
                     tvPrice!!.setText(priceTotal.toString())

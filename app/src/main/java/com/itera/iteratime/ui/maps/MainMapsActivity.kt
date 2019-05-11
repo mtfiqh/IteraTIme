@@ -55,6 +55,6 @@ class MainMapsActivity : AppCompatActivity() {
     }
 
     fun openOjek(view: View) {
-        startActivity(Intent(this, MhsActivity::class.java))
+        startActivity(Intent(this, GoToActivity::class.java))
     }
 }
