@@ -42,7 +42,7 @@ class DirectionActivity : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment!!.getMapAsync(this)
         // Set Title bar
-        supportActionBar!!.title = "Direction Maps API"
+        supportActionBar!!.title = "Direction Gedung"
         // Inisialisasi Widget
         widgetInit()
         // jalankan method
