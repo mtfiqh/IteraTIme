@@ -22,4 +22,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hari Senin</string>
     <string name="title_activity_maps">Map</string>
+    <string name="about_us">About Us</string>
+    <string name="faq">FAQ</string>
 </resources>

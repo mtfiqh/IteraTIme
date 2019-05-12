@@ -143,7 +143,6 @@ class GoToActivity : AppCompatActivity(), OnMapReadyCallback {
         tvPickUpFrom = findViewById(R.id.tvPickUpFrom)
         tvDestLocation = findViewById(R.id.tvDestLocation)
 
-        tvPrice = findViewById(R.id.tvPrice)
         tvDistance = findViewById(R.id.tvDistance)
         btnNext = findViewById(R.id.btnNext)
     }
@@ -192,12 +191,6 @@ class GoToActivity : AppCompatActivity(), OnMapReadyCallback {
                     val dataDistance = dataLegs?.distance
                     val dataDuration = dataLegs?.duration
 
-                    // Set Nilai Ke Widget
-                    val price_per_meter = 250.0
-                    val priceTotal = price_per_meter*dataDistance!!.getValue() // Jarak * harga permeter
-
-                    tvDistance.setText(dataDistance?.getText())
-                    tvPrice!!.setText(priceTotal.toString())
                     /** START
                      * Logic untuk membuat layar berada ditengah2 dua koordinat
                      */
