@@ -9,10 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
-import com.itera.iteratime.EditJadwalActivity
-import com.itera.iteratime.Jadwal
-import com.itera.iteratime.JadwalActivity
-import com.itera.iteratime.R
+import com.itera.iteratime.*
 import kotlinx.android.synthetic.main.activity_add_jadwal.*
 import kotlinx.android.synthetic.main.activity_view_single_jadwal.*
 
@@ -22,6 +19,11 @@ class ViewSingleJadwalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_single_jadwal)
 
+        showMap.setOnClickListener {
+            val intentMap = Intent(this, DirectionToGedungActivity::class.java)
+            intentMap.putExtra("gedung", intent.getStringExtra("gedung"))
+            startActivity(intentMap)
+        }
 
         getExtraIntent()
     }
