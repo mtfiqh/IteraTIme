@@ -53,7 +53,6 @@ class GoToActivity : AppCompatActivity(), OnMapReadyCallback {
     @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
         mMap!!.setPadding(10, 180, 10, 10)
         mMap!!.mapType = com.google.android.gms.maps.GoogleMap.MAP_TYPE_NORMAL
 
@@ -62,31 +61,6 @@ class GoToActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap!!.uiSettings.isZoomGesturesEnabled = true
         mMap!!.uiSettings.isRotateGesturesEnabled = false
         mMap!!.uiSettings.isZoomControlsEnabled = true
-
-        val itera = LatLng(-5.358293, 105.314823)
-        mMap!!.addMarker(MarkerOptions().position(itera).title("Institut Teknologi Sumatera"))
-        mMap!!.moveCamera(CameraUpdateFactory.newLatLng(itera))
-
-        val gda = LatLng(-5.357919,105.314414)
-        mMap!!.addMarker(MarkerOptions().position(gda).title("Gedung A - Rektorat ITERA"))
-
-        val gdb = LatLng(-5.357966,105.315304)
-        mMap!!.addMarker(MarkerOptions().position(gdb).title("Gedung B - Rektorat ITERA"))
-
-        val gdc = LatLng(-5.358449,105.313568)
-        mMap!!.addMarker(MarkerOptions().position(gdc).title("Gedung C - Gedung Perkuliahan ITERA"))
-
-        val gdd = LatLng(-5.358449,105.313568)
-        mMap!!.addMarker(MarkerOptions().position(gdd).title("Gedung D - Gedung Perkuliahan ITERA"))
-
-        val gde = LatLng(-5.360101,105.315462)
-        mMap!!.addMarker(MarkerOptions().position(gde).title("Gedung E - Gedung Perkuliahan ITERA"))
-
-        val gdgku = LatLng(-5.360101,105.315462)
-        mMap!!.addMarker(MarkerOptions().position(gdgku).title("Gedung Kuliah Umum - Gedung Perkuliahan ITERA"))
-
-        val gdlabtek = LatLng(-5.360101,105.315462)
-        mMap!!.addMarker(MarkerOptions().position(gdlabtek).title("Laboratorium Teknik - Gedung Perkuliahan ITERA"))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
