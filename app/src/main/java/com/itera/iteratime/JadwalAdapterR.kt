@@ -1,10 +1,15 @@
 package com.itera.iteratime
 
+import android.content.Intent
+import android.support.v4.content.ContextCompat
+import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import com.itera.iteratime.ui.main.ViewSingleJadwalActivity
 import org.w3c.dom.Text
 
 class JadwalAdapterR(val jadwalList: ArrayList<Jadwal>) : RecyclerView.Adapter<JadwalAdapterR.ViewHolder>() {
@@ -29,6 +34,22 @@ class JadwalAdapterR(val jadwalList: ArrayList<Jadwal>) : RecyclerView.Adapter<J
         p0.ruangan.text=jadwal.ruangan
         p0.dosen.text=jadwal.dosen
 
+
+
+        p0.cRec.setOnClickListener{
+            val intent = Intent(p0.mContext, ViewSingleJadwalActivity::class.java)
+
+            intent.putExtra("matkul", jadwal.mataKuliah)
+            intent.putExtra("sks", jadwal.sks)
+            intent.putExtra("dari", jadwal.dari)
+            intent.putExtra("sampai", jadwal.sampai)
+            intent.putExtra("gedung", jadwal.gedung)
+            intent.putExtra("dosen", jadwal.dosen)
+            intent.putExtra("key", jadwal.key)
+            intent.putExtra("ruangan", jadwal.ruangan)
+            p0.mContext.startActivity(intent)
+        }
+
     }
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
@@ -39,5 +60,8 @@ class JadwalAdapterR(val jadwalList: ArrayList<Jadwal>) : RecyclerView.Adapter<J
         val gedung = itemView.findViewById<TextView>(R.id.gedung)
         val ruangan = itemView.findViewById<TextView>(R.id.ruangan)
         val dosen = itemView.findViewById<TextView>(R.id.dosen)
+
+        val mContext = itemView.context
+        val cRec = itemView.findViewById<CardView>(R.id.cardRecycle)
     }
 }

@@ -52,8 +52,9 @@ class SeninFragment : Fragment() {
                 if(dataSnapshot!!.exists()){
                     for(j in dataSnapshot.children){
                         val jadwal = j.getValue(Jadwal::class.java)
+                        jadwal?.key =j.key
 //                        println(j.key)
-//                        println(jadwal.toString())
+                        println(jadwal.toString())
 //                        jadwalList.add(j.getValue(Jadwal::class.java)!!)
                             println("check")
                             jadwalList.add(jadwal!!)
