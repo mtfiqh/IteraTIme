@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import android.widget.LinearLayout
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -36,7 +35,7 @@ class SeninFragment : Fragment() {
     ): View? {
 
         // Inflate the layout for this fragment
-        val v= inflater.inflate(R.layout.fragment_senin, container, false)
+        val v= inflater.inflate(R.layout.fragment_viewjadwal, container, false)
         val rView = v.findViewById<RecyclerView>(R.id.recycleView)
 
         rView.layoutManager = LinearLayoutManager(v.context, LinearLayout.VERTICAL, false)

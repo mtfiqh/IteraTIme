@@ -3,9 +3,18 @@ package com.itera.iteratime.ui.main
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.itera.iteratime.Jadwal
+import com.itera.iteratime.JadwalAdapterR
 
 import com.itera.iteratime.R
 
@@ -25,7 +34,52 @@ class KamisFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_kamis, container, false)
+        val v= inflater.inflate(R.layout.fragment_viewjadwal, container, false)
+        val rView = v.findViewById<RecyclerView>(R.id.recycleView)
+
+        rView.layoutManager = LinearLayoutManager(v.context, LinearLayout.VERTICAL, false)
+        var jadwalList = ArrayList<Jadwal>()
+        var adapter = JadwalAdapterR(jadwalList)
+
+        val database = FirebaseDatabase.getInstance();
+        val myRef = database.getReference().ref.child("Jadwal").child("Kamis")
+
+        val jadwalListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // Get Post object and use the values to update the UI
+                print(dataSnapshot)
+                if(dataSnapshot!!.exists()){
+                    for(j in dataSnapshot.children){
+                        val jadwal = j.getValue(Jadwal::class.java)
+//                        println(j.key)
+//                        println(jadwal.toString())
+//                        jadwalList.add(j.getValue(Jadwal::class.java)!!)
+                        println("check")
+                        jadwalList.add(jadwal!!)
+                        println("size: "+jadwalList.size)
+                        println("===============================")
+                        rView.adapter=adapter
+                    }
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+//                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+                // ...
+            }
+        }
+
+        myRef.addValueEventListener(jadwalListener)
+
+
+        adapter = JadwalAdapterR(jadwalList)
+        println("size")
+        println(jadwalList.size)
+        println("=========================")
+
+
+        return v
     }
 
 
