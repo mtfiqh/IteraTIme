@@ -40,7 +40,8 @@ class JadwalAdapterR(val jadwalList: ArrayList<Jadwal>) : RecyclerView.Adapter<J
             val intent = Intent(p0.mContext, ViewSingleJadwalActivity::class.java)
 
             intent.putExtra("matkul", jadwal.mataKuliah)
-            intent.putExtra("sks", jadwal.sks)
+            intent.putExtra("sks", jadwal.sks.toString())
+            intent.putExtra("hari", jadwal.hari)
             intent.putExtra("dari", jadwal.dari)
             intent.putExtra("sampai", jadwal.sampai)
             intent.putExtra("gedung", jadwal.gedung)
