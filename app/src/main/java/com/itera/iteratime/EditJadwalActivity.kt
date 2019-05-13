@@ -137,17 +137,30 @@ class EditJadwalActivity() : AppCompatActivity() {
         // Write a message to the database
         var loading = ProgressDialog.show(this, null, "please wait...", true, false)
         val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("Jadwal").child(jadwal.hari.toString()).child(intent.getStringExtra("key"))
+        var myRef = database.getReference("Jadwal").child(intent.getStringExtra("hari")).child(intent.getStringExtra("key"))
+        if(jadwal.hari.toString().equals(intent.getStringExtra("hari"))){
+            myRef.setValue(jadwal).addOnCompleteListener {
+                loading.hide()
+            }
+            val intent = Intent(this, JadwalActivity::class.java).apply {
+                putExtra(AlarmClock.EXTRA_MESSAGE, "Data Berhasil ditambah")
+            }
+            createToast("Data berhasil diubah")
+            startActivity(intent)
+            finish()
+        }else{
+            myRef.removeValue().addOnCompleteListener {
+                myRef = database.getReference("Jadwal")
 
-        myRef.setValue(jadwal).addOnCompleteListener {
-            loading.hide()
+                myRef.child(jadwal.hari.toString()).push().setValue(jadwal).addOnCompleteListener {
+                    loading.hide()
+                }
+                val intent = Intent(this, JadwalActivity::class.java)
+                createToast("Data berhasil diubah")
+                startActivity(intent)
+                finish()
+            }
         }
-        val intent = Intent(this, JadwalActivity::class.java).apply {
-            putExtra(AlarmClock.EXTRA_MESSAGE, "Data Berhasil ditambah")
-        }
-        createToast("Data berhasil ditambah")
-        startActivity(intent)
-        finish()
     }
 
     fun createToast(msg:String){
