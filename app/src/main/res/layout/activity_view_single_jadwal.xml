@@ -59,6 +59,12 @@
                       android:textSize="18sp"
                       android:id="@+id/sampai"
             />
+            <TextView android:layout_width="wrap_content"
+                      android:layout_marginLeft="20dp"
+                      android:text="Senin"
+                      android:id="@+id/hari"
+                      android:textSize="19sp"
+                      android:layout_height="wrap_content"/>
         </LinearLayout>
 
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"

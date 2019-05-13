@@ -88,6 +88,7 @@ class ViewSingleJadwalActivity : AppCompatActivity() {
         dosen.text = intent.getStringExtra("dosen")
         gedung.text = intent.getStringExtra("gedung")
         ruangan.text = intent.getStringExtra("ruangan")
+        hari.text = intent.getStringExtra("hari")
     }
 
 
