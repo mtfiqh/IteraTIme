@@ -36,11 +36,11 @@
                 android:name=".DirectionToGedungActivity"
                 android:label="Activity To Gedung">
         </activity>
-        <activity android:name=".EditJadwalActivity">
+        <activity android:name=".EditJadwalActivity" android:label="Edit Jadwal Kuliah">
         </activity>
-        <activity android:name=".ui.maps.GoToActivity">
+        <activity android:name=".ui.maps.GoToActivity" android:label="Direction Maps">
         </activity>
-        <activity android:name=".ui.maps.MainMapsActivity">
+        <activity android:name=".ui.maps.MainMapsActivity" android:label="Maps">
         </activity>
         <activity android:name=".ui.maps.DirectionActivity">
         </activity>
@@ -52,7 +52,7 @@
         </activity>
         <activity android:name=".ui.main.ViewSingleJadwalActivity">
         </activity>
-        <activity android:name=".AddJadwalActivity">
+        <activity android:name=".AddJadwalActivity" android:label="Tambah Jadwal Kuliah">
         </activity>
         <activity
                 android:name=".JadwalActivity"
