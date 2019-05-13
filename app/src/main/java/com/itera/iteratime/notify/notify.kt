@@ -14,12 +14,12 @@ class notify : AppCompatActivity() {
     }
 
     fun getExtraIntent(){
-        matakuliah.text = intent.getStringExtra("matkul")
-        sks.text = intent.getStringExtra("sks")
-        dari.text = intent.getStringExtra("dari")
-        sampai.text = intent.getStringExtra("sampai")
-        dosen.text = intent.getStringExtra("dosen")
-        gedung.text = intent.getStringExtra("gedung")
-        ruangan.text = intent.getStringExtra("ruangan")
+//        matakuliah.text = intent.getStringExtra("matkul")
+//        sks.text = intent.getStringExtra("sks")
+//        dari.text = intent.getStringExtra("dari")
+//        sampai.text = intent.getStringExtra("sampai")
+//        dosen.text = intent.getStringExtra("dosen")
+//        gedung.text = intent.getStringExtra("gedung")
+//        ruangan.text = intent.getStringExtra("ruangan")
     }
 }
