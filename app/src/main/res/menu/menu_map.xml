@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-            android:id="@+id/about_us"
-            android:title="@string/about_us"
+            android:id="@+id/terang"
+            android:title="Mode Siang"
             app:showAsAction="never"/>
     <item
-            android:id="@+id/faq"
-            android:title="@string/faq"
+            android:id="@+id/gelap"
+            android:title="Mode Malam"
             app:showAsAction="never"/>
 </menu>

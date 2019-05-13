@@ -6,95 +6,160 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".AddJadwalActivity">
+
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_marginTop="16dp" android:layout_marginLeft="16dp" android:layout_marginRight="16dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
         <TextView
                 android:text="Nama Mata Kuliah"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/textView"/>
+
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/mataKuliah_Text" android:hint="Masukkan Nama Mata Kuliah"/>
+                android:layout_marginTop="15dp"
+                android:id="@+id/mataKuliah_Text"
+                android:hint="Masukkan Nama Mata Kuliah"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
         <TextView
                 android:text="Jumlah SKS"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView3"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/textView3"/>
+
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number|textPersonName"
                 android:ems="10"
+                android:layout_marginTop="15dp"
                 android:id="@+id/sks_Text"/>
+
         <TextView
                 android:text="Hari"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView4"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/textView4"/>
+
         <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/day_Spinner"/>
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/day_Spinner"/>
+
         <TextView
                 android:text="Pukul"
                 android:layout_marginTop="12dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView5"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5"/>
+
         <TextView
                 android:text="Dari"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView6"/>
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:id="@+id/textView6"/>
+
         <TextView
                 android:text="00:00"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/time_Text"
+                android:layout_height="wrap_content"
+                android:id="@+id/time_Text"
+                android:layout_marginTop="15dp"
                 android:textSize="20sp"/>
+
         <TextView
                 android:text="Sampai"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView55"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/textView55"/>
+
         <TextView
                 android:text="00:00"
                 android:layout_marginBottom="12dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/time2_Text"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/time2_Text"
                 android:textSize="20sp"/>
+
         <TextView
                 android:text="Lokasi"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView7"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/textView7"/>
+
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="55dp">
+
             <Spinner
                     android:layout_width="match_parent"
-                    android:layout_height="45dp" android:id="@+id/gedung_spinner" android:layout_weight="1"/>
+                    android:layout_height="45dp"
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/gedung_spinner"
+                    android:layout_weight="1"/>
+
             <EditText
                     android:layout_width="431dp"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:hint="Ruangan"
-                    android:id="@+id/room_Text" android:layout_weight="1"/>
+                    android:id="@+id/room_Text"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"/>
+
         </LinearLayout>
+
         <TextView
                 android:text="Dosen"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView8"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/textView8"
+                android:textSize="18sp"
+                android:layout_marginTop="15dp"/>
+
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nama Dosen"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/dosen_Text"/>
+                android:id="@+id/dosen_Text"
+                android:layout_marginTop="10dp"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
         <Button
-                android:text="SAVE"
+                android:text="Save"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/save_button"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/save_button"
+                android:layout_marginTop="10dp"/>
+
     </LinearLayout>
+
 </ScrollView>
