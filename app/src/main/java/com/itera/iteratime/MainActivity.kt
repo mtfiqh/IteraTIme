@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, JadwalActivity::class.java)
         // start your next activity
         startActivity(intent)
+        finish()
         broadcastnotify()
     }
 
