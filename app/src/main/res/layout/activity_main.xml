@@ -43,12 +43,10 @@
                             android:background="@drawable/cerclebackgroundpurple"
                             android:src="@drawable/ic_event_note_black_24dp"
                             android:padding="10dp"/>
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
+                    <Button android:layout_width="120dp"
+                            android:layout_height="55dp"
                             android:layout_marginTop="10dp"
-                            android:text="Lihat Jadwal"/>
+                            android:text="Lihat Jadwal" android:onClick="lihatjadwal"/>
                     <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -86,12 +84,10 @@
                             android:background="@drawable/cerclebackgroundpink"
                             android:src="@drawable/ic_near_me_black_24dp"
                             android:padding="10dp"/>
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
+                    <Button android:layout_width="120dp"
+                            android:layout_height="55dp"
                             android:layout_marginTop="10dp"
-                            android:text="Maps Gedung"/>
+                            android:text="Maps Gedung" android:onClick="mapsgedung"/>
                     <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -136,12 +132,10 @@
                             android:background="@drawable/cerclebackgroundgreen"
                             android:src="@drawable/ic_add_alert_black_24dp"
                             android:padding="10dp"/>
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
+                    <Button android:layout_width="120dp"
+                            android:layout_height="55dp"
                             android:layout_marginTop="10dp"
-                            android:text="Tambah Jadwal"/>
+                            android:text="Tambah Jadwal" android:onClick="tambahjadwal"/>
                     <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -178,12 +172,10 @@
                             android:background="@drawable/cerclebackgroundyello"
                             android:src="@drawable/ic_announcement_black_24dp"
                             android:padding="10dp"/>
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
+                    <Button android:layout_width="120dp"
+                            android:layout_height="55dp"
                             android:layout_marginTop="10dp"
-                            android:text="Informasi"/>
+                            android:text="Keluar Aplikasi" android:onClick="onBackPressed"/>
                     <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"

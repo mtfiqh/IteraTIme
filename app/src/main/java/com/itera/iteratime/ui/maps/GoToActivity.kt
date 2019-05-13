@@ -76,16 +76,16 @@ class GoToActivity : AppCompatActivity(), OnMapReadyCallback {
         val gdc = LatLng(-5.358449,105.313568)
         mMap!!.addMarker(MarkerOptions().position(gdc).title("Gedung C - Gedung Perkuliahan ITERA"))
 
-        val gdd = LatLng(-5.358449,105.313568)
+        val gdd = LatLng(-5.358800,105.313438)
         mMap!!.addMarker(MarkerOptions().position(gdd).title("Gedung D - Gedung Perkuliahan ITERA"))
 
         val gde = LatLng(-5.360101,105.315462)
         mMap!!.addMarker(MarkerOptions().position(gde).title("Gedung E - Gedung Perkuliahan ITERA"))
 
-        val gdgku = LatLng(-5.360101,105.315462)
+        val gdgku = LatLng(-5.360876,105.310283)
         mMap!!.addMarker(MarkerOptions().position(gdgku).title("Gedung Kuliah Umum - Gedung Perkuliahan ITERA"))
 
-        val gdlabtek = LatLng(-5.360101,105.315462)
+        val gdlabtek = LatLng(-5.360266,105.310294)
         mMap!!.addMarker(MarkerOptions().position(gdlabtek).title("Laboratorium Teknik - Gedung Perkuliahan ITERA"))
     }
 

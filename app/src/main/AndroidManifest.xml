@@ -18,6 +18,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".EditJadwalActivity">
+        <activity android:name=".notify.notify">
+        </activity>
+        <activity android:name=".berita.beritamain">
         </activity>
         <activity android:name=".ui.maps.GoToActivity">
         </activity>
