@@ -1,5 +1,6 @@
 package com.itera.iteratime.ui.main
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -40,8 +41,21 @@ class ViewSingleJadwalActivity : AppCompatActivity() {
                 true
             }
             R.id.delete -> {
-                deleteJadwal()
-                true
+                val builder = AlertDialog.Builder(this)
+                builder.setPositiveButton("YAKIN"){ dialog, which ->
+                    deleteJadwal()
+                    true
+                }
+                builder.setNegativeButton("TIDAK"){dialog, which ->
+                    false
+                }
+                builder.setTitle("Apakah anda yakin ingin menghapus nya?")
+                builder.setMessage("Data yang sudah di hapus tidak dapat dikembalikan lagi")
+
+                val dialog:AlertDialog = builder.create()
+                dialog.show()
+
+                super.onOptionsItemSelected(item)
             }
             else -> {
                 super.onOptionsItemSelected(item)
@@ -53,7 +67,6 @@ class ViewSingleJadwalActivity : AppCompatActivity() {
         var loading = ProgressDialog.show(this, null, "please wait...", true, false)
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference("Jadwal").child(intent.getStringExtra("hari")).child(intent.getStringExtra("key"))
-
         myRef.removeValue().addOnCompleteListener {
             loading.hide()
         }
