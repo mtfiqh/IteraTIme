@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.text.TextUtils
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_add_jadwal.*
 import org.w3c.dom.Text
@@ -87,8 +89,6 @@ class AddJadwalActivity : AppCompatActivity() {
         var ruangan = room_Text.text
         var dosen = dosen_Text.text
 
-
-
         val jadwal = Jadwal(matakuliah.toString(), sks, hari, dari.toString(), sampai.toString(), gedung, ruangan.toString(), dosen.toString())
         toDatabase(jadwal)
     }
@@ -112,6 +112,36 @@ class AddJadwalActivity : AppCompatActivity() {
 
     fun createToast(msg:String){
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_map, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.gelap -> {
+                showGelap()
+            }
+            R.id.terang -> {
+                showTerang()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
+
+    private fun showGelap() {
+        application.setTheme(R.style.AppTheme)
+    }
+
+    private fun showTerang() {
+        application.setTheme(R.style.AppTheme2)
+
     }
 
 

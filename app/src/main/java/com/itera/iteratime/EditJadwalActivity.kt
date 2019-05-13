@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.AlarmClock
 import android.text.TextUtils
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
@@ -152,5 +154,35 @@ class EditJadwalActivity() : AppCompatActivity() {
 
     fun createToast(msg:String){
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_map, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.gelap -> {
+                showGelap()
+            }
+            R.id.terang -> {
+                showTerang()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
+
+    private fun showGelap() {
+        application.setTheme(R.style.AppTheme)
+    }
+
+    private fun showTerang() {
+        application.setTheme(R.style.AppTheme2)
+
     }
 }

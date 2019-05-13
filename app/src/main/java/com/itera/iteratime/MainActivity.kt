@@ -26,20 +26,6 @@ class MainActivity : AppCompatActivity() {
         broadcastnotify()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_map,menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when(item?.itemId){
-            R.id.about_us -> Toast.makeText(this,"Selected About Us", Toast.LENGTH_LONG).show()
-
-            R.id.faq -> Toast.makeText(this,"Selected FAQ", Toast.LENGTH_LONG).show()
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
     fun tambahjadwal(view: View) {
         startActivity(Intent(this, AddJadwalActivity::class.java))
     }
@@ -64,7 +50,33 @@ class MainActivity : AppCompatActivity() {
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.timeInMillis, broadcast)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_map, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.gelap -> {
+                showGelap()
+            }
+            R.id.terang -> {
+                showTerang()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onBackPressed() {
         super.onBackPressed()
+    }
+
+    private fun showGelap() {
+        application.setTheme(R.style.AppTheme)
+    }
+
+    private fun showTerang() {
+        application.setTheme(R.style.AppTheme2)
+
     }
 }

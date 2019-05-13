@@ -9,8 +9,8 @@
     </style>
 
     <style name="AppTheme2" parent="Theme.AppCompat.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/Gold</item>
-        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorPrimary">@color/LightGreen</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
         <item name="colorAccent">@color/LightSkyBlue</item>
     </style>
 
