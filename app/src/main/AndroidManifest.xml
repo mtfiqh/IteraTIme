@@ -34,7 +34,7 @@
 
         <activity
                 android:name=".DirectionToGedungActivity"
-                android:label="@string/title_activity_direction_to_gedung">
+                android:label="Activity To Gedung">
         </activity>
         <activity android:name=".EditJadwalActivity">
         </activity>

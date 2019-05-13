@@ -45,10 +45,10 @@ class DirectionToGedungActivity : AppCompatActivity(), OnMapReadyCallback {
             "A" -> LatLng(-5.357919,105.314414)
             "B" -> LatLng(-5.357966,105.315304)
             "C" -> LatLng(-5.358449,105.313568)
-            "D" -> LatLng(-5.358449,105.313568)
+            "D" -> LatLng(-5.358800,105.313438)
             "E" -> LatLng(-5.360101,105.315462)
-            "GKU" -> LatLng(-5.360101,105.315462)
-            else -> LatLng(-5.360101,105.315462)
+            "GKU" -> LatLng(-5.360876,105.310283)
+            else -> LatLng(-5.360266,105.310294)
         }
         mMap.addMarker(MarkerOptions().position(gd).title("Gedung $gedung")).showInfoWindow()
     }
