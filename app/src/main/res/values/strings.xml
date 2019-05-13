@@ -42,4 +42,7 @@
     <string name="title_activity_maps">Map</string>
     <string name="about_us">About Us</string>
     <string name="faq">FAQ</string>
+    <string name="Edit">Edit</string>
+    <string name="Delete">Delete</string>
+    <string name="title_activity_direction_to_gedung">Map</string>
 </resources>
