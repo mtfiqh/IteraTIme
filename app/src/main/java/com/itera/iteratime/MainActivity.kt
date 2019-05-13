@@ -10,7 +10,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import com.itera.iteratime.berita.beritamain
 import com.itera.iteratime.notify.AlarmReceiver
 import com.itera.iteratime.ui.maps.MainMapsActivity
 import java.util.*
@@ -45,9 +44,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, AddJadwalActivity::class.java))
     }
 
-    fun beritaterbaru(view: View) {
-        startActivity(Intent(this, beritamain::class.java))
-    }
 
     fun lihatjadwal(view: View) {
         startActivity(Intent(this, JadwalActivity::class.java))
@@ -66,5 +62,9 @@ class MainActivity : AppCompatActivity() {
         val cal = Calendar.getInstance()
         cal.add(Calendar.SECOND, 5)
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.timeInMillis, broadcast)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }
