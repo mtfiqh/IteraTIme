@@ -31,9 +31,6 @@ class EditJadwalActivity() : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setTheme(R.style.AppTheme2)
-
         setContentView(R.layout.activity_edit_jadwal)
         // Adapter untuk spinner hari
         val adapter= ArrayAdapter.createFromResource(this, R.array.hari_array, android.R.layout.simple_spinner_item)
@@ -166,11 +163,7 @@ class EditJadwalActivity() : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.gelap -> {
-                showGelap()
-            }
-            R.id.terang -> {
-                showTerang()
+            R.id.setting -> {
             }
         }
         return super.onOptionsItemSelected(item)
@@ -178,13 +171,5 @@ class EditJadwalActivity() : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-    }
-
-    private fun showGelap() {
-        setTheme(android.R.style.Theme_Black)
-    }
-
-    private fun showTerang() {
-        setTheme(android.R.style.Theme_Holo_Light)
     }
 }
