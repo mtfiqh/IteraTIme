@@ -56,11 +56,10 @@ class JadwalActivity : AppCompatActivity() {
     }
 
     private fun showGelap() {
-        application.setTheme(R.style.AppTheme)
+        setTheme(android.R.style.Theme_Black)
     }
 
     private fun showTerang() {
-        application.setTheme(R.style.AppTheme2)
-
+        setTheme(android.R.style.Theme_Holo_Light)
     }
 }
