@@ -31,6 +31,9 @@ class EditJadwalActivity() : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setTheme(R.style.AppTheme2)
+
         setContentView(R.layout.activity_edit_jadwal)
         // Adapter untuk spinner hari
         val adapter= ArrayAdapter.createFromResource(this, R.array.hari_array, android.R.layout.simple_spinner_item)
